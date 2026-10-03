@@ -298,20 +298,17 @@ YMBOX 的定位是**算法研究与工程起点**，不是可以直接装车的�
 
 完整的使用手册提供中文与英文两个版本，包含以下章节。
 
-<!-- TODO(发布后填写)：在线手册发布后，把下一行换成链接，例如：
-**在线阅读**：[中文手册](https://中文手册网址) · [English manual](https://英文手册网址)
--->
-**在线阅读**：中文手册与英文手册即将发布。
+**在线阅读**：[中文手册](https://sable-bite-ceb.notion.site/YMBOX-3ac77ff23ca58143824fdbed07e54605) · [English manual](https://sable-bite-ceb.notion.site/YMBOX-English-3ee77ff23ca58108b8c9fa561b562d5f)
 
 | 章节 | 内容 |
 | --- | --- |
-| YMBOX 配置计算器使用指南 | 启动计算器、导入电机、一键推荐、写入模型与直接生成代码 |
-| 计算器算法与整定公式原理 | 每一项推荐值背后的公式、假设和适用条件，以及全部配置字段索引 |
-| 工程总览与模型架构 | 共享核心、参数配置链、控制调度、仿真功率级与接口边界 |
-| 模式、Variant 与参数命名 | 公开与内部运行模式、构建 Variant 和参数命名规则 |
-| 控制模块说明 | 按执行顺序说明 7 个模块的接口、参数与处理规则 |
-| I/F 启动与 SMO | 启动、观测与接管的跨模块流程，以及 SMO 参数整定 |
-| Drive 框架与板级接入 | 导出移植包、实现板级端口、固件调用、增量更新与安全状态机 |
+| [YMBOX 配置计算器使用指南](https://sable-bite-ceb.notion.site/3ed77ff23ca5811c9921e4d55c129625) | 启动计算器、导入电机、一键推荐、写入模型与直接生成代码 |
+| [计算器算法与整定公式原理](https://sable-bite-ceb.notion.site/3d877ff23ca581958552ffe535a48ee6) | 每一项推荐值背后的公式、假设和适用条件，以及全部配置字段索引 |
+| [工程总览与模型架构](https://sable-bite-ceb.notion.site/39c77ff23ca58148990ec4406d158c99) | 共享核心、参数配置链、控制调度、仿真功率级与接口边界 |
+| [模式、Variant 与参数命名](https://sable-bite-ceb.notion.site/39c77ff23ca581a7b3c0d8812f59fb7f) | 公开与内部运行模式、构建 Variant 和参数命名规则 |
+| [控制模块说明](https://sable-bite-ceb.notion.site/3aa77ff23ca581289350d3b49b41cd07) | 按执行顺序说明 7 个模块的接口、参数与处理规则 |
+| [I/F 启动与 SMO](https://sable-bite-ceb.notion.site/39a77ff23ca5818a931cc785f73acc29) | 启动、观测与接管的跨模块流程，以及 SMO 参数整定 |
+| [Drive 框架与板级接入](https://sable-bite-ceb.notion.site/3ac77ff23ca58119b933c65aa26f04bb) | 导出移植包、实现板级端口、固件调用、增量更新与安全状态机 |
 
 仓库内的硬件接入说明：[`HARDWARE_PORT.md`](Platform/PortTemplate/HARDWARE_PORT.md) · [`SharedMath`](Platform/SharedMath/README.md) · [`SinCos`](Platform/SinCos/README.md)
 
@@ -623,20 +620,17 @@ YMBOX is positioned as an **algorithm research platform and engineering starting
 
 The full user manual is available in Chinese and English and contains the chapters below.
 
-<!-- TODO (fill in after publishing): once the online manuals are published, replace the next line with links, for example:
-**Read online**: [English manual](https://english-manual-url) · [中文手册](https://chinese-manual-url)
--->
-**Read online**: the English and Chinese manuals will be published soon.
+**Read online**: [English manual](https://sable-bite-ceb.notion.site/YMBOX-English-3ee77ff23ca58108b8c9fa561b562d5f) · [中文手册](https://sable-bite-ceb.notion.site/YMBOX-3ac77ff23ca58143824fdbed07e54605)
 
 | Chapter | Contents |
 | --- | --- |
-| YMBOX Configuration Calculator Guide | Launching the calculator, importing a motor, one-click recommendations, writing to the model and direct code generation |
-| YMBOX Calculator Algorithms and Tuning Formulas | The formulas, assumptions and conditions behind every recommended value, plus an index of all configuration fields |
-| Project Overview and Model Architecture | Shared core, parameter configuration chain, control scheduling, simulation power stage and interface boundaries |
-| Modes, Variants and Parameter Naming | Public and internal operating modes, build variants and parameter naming rules |
-| Control Modules | Interfaces, parameters and processing rules of the seven modules, in execution order |
-| I/F Startup and SMO | The cross-module flow of startup, observation and handover, plus SMO parameter tuning |
-| Drive Framework and Board Integration | Exporting the hardware package, implementing the board port, firmware calls, incremental updates and the safety state machine |
+| [YMBOX Configuration Calculator Guide](https://sable-bite-ceb.notion.site/3ee77ff23ca5817d921ecac318c50120) | Launching the calculator, importing a motor, one-click recommendations, writing to the model and direct code generation |
+| [YMBOX Calculator Algorithms and Tuning Formulas](https://sable-bite-ceb.notion.site/3ee77ff23ca5819fb9fbe9517a56b292) | The formulas, assumptions and conditions behind every recommended value, plus an index of all configuration fields |
+| [Project Overview and Model Architecture](https://sable-bite-ceb.notion.site/3ee77ff23ca58119840adbd1ba39067f) | Shared core, parameter configuration chain, control scheduling, simulation power stage and interface boundaries |
+| [Modes, Variants and Parameter Naming](https://sable-bite-ceb.notion.site/3ee77ff23ca581b3a3ebd430c701245d) | Public and internal operating modes, build variants and parameter naming rules |
+| [Control Modules](https://sable-bite-ceb.notion.site/3ee77ff23ca581c49bf3c95b40b45998) | Interfaces, parameters and processing rules of the seven modules, in execution order |
+| [I/F Startup and SMO](https://sable-bite-ceb.notion.site/3ee77ff23ca581498fbdcc51099fa320) | The cross-module flow of startup, observation and handover, plus SMO parameter tuning |
+| [Drive Framework and Board Integration](https://sable-bite-ceb.notion.site/3ee77ff23ca581d0af8fda611147e13e) | Exporting the hardware package, implementing the board port, firmware calls, incremental updates and the safety state machine |
 
 Hardware integration notes in the repository: [`HARDWARE_PORT.md`](Platform/PortTemplate/HARDWARE_PORT.md#en) · [`SharedMath`](Platform/SharedMath/README.md#en) · [`SinCos`](Platform/SinCos/README.md)
 
