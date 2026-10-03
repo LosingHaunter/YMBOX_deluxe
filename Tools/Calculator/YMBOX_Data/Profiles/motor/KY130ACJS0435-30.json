@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "kind": "motor",
+  "name": "KY130ACJS0435-30",
+  "updatedAt": "2026-09-09T15:23:49.328Z",
+  "data": {
+    "schemaVersion": 1,
+    "topology": "spm",
+    "connection": "star",
+    "values": {
+      "polePairs": "5",
+      "speedRpm": "3000",
+      "inertia": "0.00148",
+      "maxTorque": "22.2",
+      "ratedTorque": "11.1",
+      "rLine": "0.014",
+      "lLine": "0.063",
+      "vBus": "48",
+      "ktLineRms": "0.15"
+    }
+  }
+}

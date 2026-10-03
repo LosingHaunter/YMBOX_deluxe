@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YMBOX Toolbox</title>
+    <link rel="icon" type="image/png" href="assets/icon/ymbox-app-icon.png">
+    <link rel="stylesheet" href="styles.css?v=20260911-primary-mint">
+    <link rel="stylesheet" href="ymbox-config.css?v=20260928-motor-preset-highlight">
+  </head>
+  <body>
+    <div class="language-switch" id="languageSwitch" role="group" aria-label="Language" data-i18n-aria-label="language.label" hidden>
+      <button type="button" data-language="en" data-i18n="language.english">English</button>
+      <button type="button" data-language="zh-CN" data-i18n="language.chinese">中文</button>
+    </div>
+    <main class="toolbox-home" id="homeView">
+      <header class="toolbox-topbar">
+        <div class="toolbox-brand">
+          <div class="brand-icon" aria-hidden="true">
+            <img src="assets/img/icon-leaf.png" alt="">
+          </div>
+          <div>
+            <p class="eyebrow">Engineering Utilities</p>
+            <h1 data-i18n="toolbox.title">YMBOX Toolbox</h1>
+          </div>
+        </div>
+        <div class="tool-count" aria-label="Tool count" data-i18n-aria-label="toolbox.toolCountLabel">
+          <strong id="readyToolCount">0</strong>
+          <span data-i18n="toolbox.availableTools"> tools available</span>
+        </div>
+      </header>
+
+      <section class="tool-launcher" aria-labelledby="toolLauncherTitle">
+        <div class="launcher-heading">
+          <div>
+            <p class="eyebrow">Tool Library</p>
+            <h2 id="toolLauncherTitle" data-i18n="toolbox.chooseTool">Choose a tool</h2>
+          </div>
+          <img src="assets/img/icon-leaf.png" alt="" aria-hidden="true">
+        </div>
+        <div class="tool-grid" id="toolGrid"></div>
+      </section>
+
+      <footer class="toolbox-footer">YMBOX · Engineering Toolbox</footer>
+    </main>
+
+    <main class="app-shell motor-tool-view" id="motorCalculatorView" data-tool-view="motor-super-calculator" hidden>
+      <nav class="calculator-nav" aria-label="工具导航">
+        <button class="back-button" data-back-toolbox type="button" title="Back to toolbox" data-i18n-title="navigation.backToToolbox">
+          <span aria-hidden="true">←</span>
+          <span data-i18n="navigation.backToToolbox">Back to toolbox</span>
+        </button>
+        <span class="breadcrumb"><strong>YMBOX</strong><i>/</i>电机全参数超级计算器</span>
+      </nav>
+
+      <header class="topbar motor-tool-header">
+        <div class="brand-block">
+          <div class="brand-icon motor-brand-icon" aria-hidden="true">M+</div>
+          <div>
+            <p class="eyebrow">Motor Parameter Laboratory</p>
+            <h1>电机全参数超级计算器</h1>
+          </div>
+        </div>
+        <div class="motor-model-badge">Sinusoidal PMSM</div>
+      </header>
+
+      <div class="island-divider" aria-hidden="true"></div>
+
+      <section class="panel profile-panel motor-profile-panel">
+        <div class="profile-fields">
+          <label class="profile-name-field">
+            <span>电机方案名称</span>
+            <input id="motorProfileName" type="text" maxlength="80" placeholder="例如：80 系列样机 A">
+          </label>
+          <button class="primary-button profile-save-button" id="motorProfileSave" type="button">保存方案</button>
+          <label class="profile-select-field">
+            <span>已保存电机方案</span>
+            <select id="motorProfileSelect">
+              <option value="">选择方案</option>
+            </select>
+          </label>
+        </div>
+        <div class="profile-meta">
+          <span id="motorProfileStatus">尚未选择方案</span>
+          <span id="motorStoragePath"></span>
+        </div>
+      </section>
+
+      <section class="panel motor-control-panel">
+        <div class="motor-control-row">
+          <div class="motor-model-selects">
+            <label class="motor-select-field">
+              <span>转子结构</span>
+              <select id="motorTopology">
+                <option value="spm">表贴式 SPM</option>
+                <option value="ipm">内嵌式 IPM</option>
+              </select>
+            </label>
+            <label class="motor-select-field">
+              <span>绕组接法</span>
+              <select id="motorConnection">
+                <option value="unknown">未知，同时给出 Y / Δ</option>
+                <option value="star">Y 星形</option>
+                <option value="delta">Δ 三角形</option>
+              </select>
+            </label>
+          </div>
+          <div class="motor-actions">
+            <button class="secondary-button" id="motorClearButton" type="button">清空全部</button>
+            <button class="primary-button" id="motorCalculateButton" type="button">计算剩余参数</button>
+          </div>
+        </div>
+        <div class="convention-strip" aria-label="计算约定">
+          <span>正弦 PMSM</span>
+          <span>ψf 为每相峰值磁链</span>
+          <span>dq 电流采用峰值</span>
+          <span>线阻抗为端子间等效值</span>
+          <span>SVPWM 线性区最大基波</span>
+          <span>额定电流为线电流 RMS</span>
+        </div>
+      </section>
+
+      <section class="panel motor-parameter-panel">
+        <div class="panel-heading motor-table-heading">
+          <h2>常用参数</h2>
+          <span>手动值优先，计算值以绿色标记</span>
+        </div>
+        <p class="motor-table-help">同行按钮切换参数形式；修改后以当前形式的输入为准。接法未知时，线／相换算同时列出 Y、Δ 两种结果。</p>
+        <div class="motor-table-scroll">
+          <table class="motor-parameter-table">
+            <thead>
+              <tr>
+                <th>参数</th>
+                <th>符号</th>
+                <th>数值</th>
+                <th>单位</th>
+                <th>状态 / 推导来源</th>
+              </tr>
+            </thead>
+            <tbody id="motorParameterRows"></tbody>
+          </table>
+        </div>
+        <div class="motor-advanced-section">
+          <button class="motor-advanced-toggle" id="motorAdvancedToggle" type="button" aria-expanded="false" aria-controls="motorAdvancedParameters">
+            <span>高级参数</span>
+            <span class="motor-advanced-state" id="motorAdvancedState">展开</span>
+            <span class="motor-advanced-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <p class="motor-advanced-summary" id="motorAdvancedSummary" aria-live="polite">凸极比、时间常数、铜耗、电压利用率及更多反电势换算。折叠后仍参与计算和方案保存。</p>
+          <div class="motor-table-scroll" id="motorAdvancedParameters" hidden>
+            <table class="motor-parameter-table" aria-label="高级参数">
+              <thead>
+                <tr>
+                  <th>参数</th>
+                  <th>符号</th>
+                  <th>数值</th>
+                  <th>单位</th>
+                  <th>状态 / 推导来源</th>
+                </tr>
+              </thead>
+              <tbody id="motorAdvancedParameterRows"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="motor-message-panel" id="motorMessagePanel" hidden aria-live="polite"></section>
+    </main>
+
+    <main class="app-shell ymbox-config-view" id="ymboxConfigurationView" data-tool-view="ymbox-configuration" hidden></main>
+
+    <script src="profile-storage.js?v=20260922-json-only"></script>
+    <script src="i18n.js?v=20261003-motor-english"></script>
+    <script src="tool-registry.js?v=20260926-i18n"></script>
+    <script src="number-format.js?v=20260910-pwm-explicit"></script>
+    <script src="motor-super-calculator.js?v=20261003-motor-english"></script>
+    <script src="motor-calculator-i18n.js?v=20261003-motor-english"></script>
+    <script src="position-pll-calculator.js?v=20260911-position-pll"></script>
+    <script src="ymbox-config-schema.js?v=20260928-divider-editable"></script>
+    <script src="ymbox-config-auto.js?v=20260910-fw-no-minimum"></script>
+    <script src="ymbox-config-engine.js?v=20260928-divider-editable"></script>
+    <script src="ymbox-config-labels.js?v=20260911-position-pll"></script>
+    <script src="ymbox-config-layout.js?v=20260922-whole-khz"></script>
+    <script src="ymbox-config-i18n.js?v=20261003-motor-english"></script>
+    <script src="ymbox-config-ui.js?v=20260928-motor-preset-highlight"></script>
+    <script src="app.js?v=20261003-motor-english"></script>
+  </body>
+</html>

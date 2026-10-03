@@ -1,0 +1,23 @@
+# Simulink / MATLAB generated files
+slprj/
+*.slxc
+*_ert_rtw/
+*_grt_rtw/
+*.asv
+*.autosave
+*.mex*
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Calculator runtime marker (port and session token of the local service)
+.configuration-service.json
+
+# Calculator desktop packaging artifacts
+Tools/Calculator/.build-venv/
+Tools/Calculator/.build-tmp/
+Tools/Calculator/build/
+Tools/Calculator/dist/
+Tools/Calculator/release/
+*.spec
